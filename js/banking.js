@@ -44,10 +44,17 @@ document.getElementById('withdraw-button').addEventListener('click', function ()
     const newWithdrawTotal = previusWithdrawTotal + newWithdrawAmount;
     withdrawTotal.innerText = newWithdrawTotal;
 
+    // Update Balance after Withdraw
+
+    const balanceTotal = document.getElementById('total-account-balance');
+    const previusBalanceText = balanceTotal.innerText;
+    const previusBalanceTotal = parseFloat(previusBalanceText);
+    const newBalanceTotal = previusBalanceTotal - newWithdrawAmount;
+
+    balanceTotal.innerText = newBalanceTotal;
+
     // Clear Withdraw input value
 
     withdrawInput.value = '';
 
 });
-
-
