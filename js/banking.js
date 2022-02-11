@@ -3,13 +3,26 @@
 document.getElementById('deposit-button').addEventListener('click', function () {
     // Get the ammount deposited
     const depositInput = document.getElementById('deposit-input');
-    const newDepositAmmount = depositInput.value;
+    const newDepositAmmountText = depositInput.value;
+    const newDepositAmmount = parseFloat(newDepositAmmountText);
+
+    // Update Deposit Total
 
     const depositTotal = document.getElementById('deposit-total');
-    const previusDeposiAmount = depositTotal.innerText;
-    const updatedDepositTotal = parseFloat(previusDegitposiAmount) + parseFloat(newDepositAmmount);
-    console.log(updatedDepositTotal);
-    depositTotal.innerText = updatedDepositTotal;
+    const previusDeposiText = depositTotal.innerText;
+    const previusDeposiAmount = parseFloat(previusDeposiText);
+    const newDepositTotal = previusDeposiAmount + newDepositAmmount;
+
+    depositTotal.innerText = newDepositTotal;
+
+    // Update Account Blanace
+
+    const balanceTotal = document.getElementById('total-account-balance');
+    const balanceTotalText = balanceTotal.innerText;
+    const previusBalanceTotal = parseFloat(balanceTotalText);
+    const newBalanceTotal = previusBalanceTotal + newDepositAmmount;
+    balanceTotal.innerText = newBalanceTotal;
+
 
     // Clear the deposit input field
     depositInput.value = '';
